@@ -1,0 +1,1383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aravind Soundirarajan - Transformers Portfolio</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Orbitron', 'Segoe UI', sans-serif;
+            line-height: 1.6;
+            color: #fff;
+            background: linear-gradient(135deg, #000428 0%, #004e92 50%, #000428 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Animated Background with Transformers Effects */
+        .cyber-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(0, 255, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 0, 128, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 40% 80%, rgba(255, 255, 0, 0.1) 0%, transparent 50%);
+            animation: cyberpulse 8s ease-in-out infinite;
+        }
+
+        @keyframes cyberpulse {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 0.8; }
+        }
+
+        .matrix-effect {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+            background-image: 
+                linear-gradient(90deg, rgba(0, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(rgba(0, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 30px 30px;
+            animation: matrixMove 20s linear infinite;
+        }
+
+        @keyframes matrixMove {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(30px, 30px); }
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative;
+            z-index: 10;
+        }
+
+        /* Hero Section with Transformer Effects */
+        .hero {
+            background: linear-gradient(135deg, 
+                rgba(0, 255, 255, 0.1) 0%, 
+                rgba(255, 0, 128, 0.1) 50%, 
+                rgba(255, 255, 0, 0.1) 100%);
+            backdrop-filter: blur(15px);
+            border: 2px solid rgba(0, 255, 255, 0.3);
+            border-radius: 25px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 
+                0 0 30px rgba(0, 255, 255, 0.3),
+                inset 0 0 30px rgba(255, 0, 128, 0.1);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            animation: heroGlow 4s ease-in-out infinite;
+        }
+
+        @keyframes heroGlow {
+            0%, 100% { 
+                box-shadow: 
+                    0 0 30px rgba(0, 255, 255, 0.3),
+                    inset 0 0 30px rgba(255, 0, 128, 0.1);
+            }
+            50% { 
+                box-shadow: 
+                    0 0 50px rgba(0, 255, 255, 0.6),
+                    inset 0 0 50px rgba(255, 0, 128, 0.3);
+            }
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, 
+                transparent, 
+                rgba(0, 255, 255, 0.1), 
+                transparent,
+                rgba(255, 0, 128, 0.1),
+                transparent);
+            animation: scanline 6s linear infinite;
+        }
+
+        @keyframes scanline {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 4px solid rgba(0, 255, 255, 0.8);
+            margin: 0 auto 20px;
+            background: linear-gradient(45deg, #00ffff, #ff0080, #ffff00);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+            color: #000;
+            font-weight: bold;
+            animation: energyPulse 3s ease-in-out infinite;
+            box-shadow: 0 0 30px rgba(0, 255, 255, 0.6);
+        }
+
+        @keyframes energyPulse {
+            0%, 100% { 
+                transform: scale(1);
+                box-shadow: 0 0 30px rgba(0, 255, 255, 0.6);
+            }
+            50% { 
+                transform: scale(1.05);
+                box-shadow: 0 0 50px rgba(0, 255, 255, 1);
+            }
+        }
+
+        h1 {
+            font-size: 2.8rem;
+            margin-bottom: 15px;
+            background: linear-gradient(45deg, #00ffff, #ff0080, #ffff00);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+            animation: textGlow 3s ease-in-out infinite;
+        }
+
+        @keyframes textGlow {
+            0%, 100% { text-shadow: 0 0 20px rgba(0, 255, 255, 0.5); }
+            50% { text-shadow: 0 0 30px rgba(0, 255, 255, 0.8); }
+        }
+
+        .subtitle {
+            font-size: 1.3rem;
+            color: #00ffff;
+            margin-bottom: 20px;
+            text-shadow: 0 0 10px rgba(0, 255, 255, 0.8);
+        }
+
+        /* Tabs Navigation */
+        .tabs-container {
+            background: linear-gradient(135deg, rgba(0, 255, 255, 0.1), rgba(255, 0, 128, 0.1));
+            backdrop-filter: blur(15px);
+            border: 2px solid rgba(0, 255, 255, 0.3);
+            border-radius: 20px;
+            padding: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 0 30px rgba(0, 255, 255, 0.2);
+        }
+
+        .tabs-nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+
+        .tab-btn {
+            background: linear-gradient(135deg, rgba(0, 255, 255, 0.2), rgba(255, 0, 128, 0.2));
+            border: 2px solid rgba(0, 255, 255, 0.5);
+            color: #00ffff;
+            padding: 12px 25px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 1rem;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .tab-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .tab-btn:hover::before {
+            left: 100%;
+        }
+
+        .tab-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.6);
+            border-color: rgba(0, 255, 255, 0.8);
+        }
+
+        .tab-btn.active {
+            background: linear-gradient(135deg, #00ffff, #ff0080);
+            color: #000;
+            box-shadow: 0 0 30px rgba(0, 255, 255, 0.8);
+            transform: scale(1.1);
+        }
+
+        /* Tab Content */
+        .tab-content {
+            display: none;
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .section {
+            background: linear-gradient(135deg, 
+                rgba(0, 255, 255, 0.1) 0%, 
+                rgba(255, 0, 128, 0.1) 50%, 
+                rgba(255, 255, 0, 0.1) 100%);
+            backdrop-filter: blur(15px);
+            border: 2px solid rgba(0, 255, 255, 0.3);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 25px;
+            box-shadow: 0 0 25px rgba(0, 255, 255, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #00ffff, #ff0080, #ffff00, #00ffff);
+            animation: energyFlow 3s linear infinite;
+        }
+
+        @keyframes energyFlow {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        .section-title {
+            font-size: 2.2rem;
+            margin-bottom: 25px;
+            color: #00ffff;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 0 0 15px rgba(0, 255, 255, 0.8);
+        }
+
+        /* Grid Layouts */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .info-card {
+            background: linear-gradient(135deg, rgba(0, 255, 255, 0.15), rgba(255, 0, 128, 0.15));
+            border: 2px solid rgba(0, 255, 255, 0.4);
+            border-radius: 15px;
+            padding: 25px;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .info-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, transparent, rgba(0, 255, 255, 0.1), transparent);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .info-card:hover::after {
+            opacity: 1;
+        }
+
+        .info-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0, 255, 255, 0.3);
+            border-color: rgba(0, 255, 255, 0.8);
+        }
+
+        .info-card h3 {
+            color: #ff0080;
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+            text-shadow: 0 0 10px rgba(255, 0, 128, 0.6);
+        }
+
+        /* Skills Section */
+        .skill-category {
+            background: linear-gradient(135deg, rgba(255, 255, 0, 0.1), rgba(0, 255, 255, 0.1));
+            border: 2px solid rgba(255, 255, 0, 0.4);
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .skill-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 15px;
+        }
+
+        .skill-tag {
+            background: linear-gradient(45deg, rgba(0, 255, 255, 0.3), rgba(255, 0, 128, 0.3));
+            border: 2px solid rgba(0, 255, 255, 0.6);
+            color: #fff;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            text-shadow: 0 0 5px rgba(0, 255, 255, 0.8);
+        }
+
+        .skill-tag:hover {
+            background: linear-gradient(45deg, #00ffff, #ff0080);
+            color: #000;
+            transform: scale(1.1);
+            box-shadow: 0 0 15px rgba(0, 255, 255, 0.8);
+        }
+
+        /* Projects Section */
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+        }
+
+        .project-card {
+            background: linear-gradient(135deg, rgba(0, 255, 255, 0.1), rgba(255, 0, 128, 0.1));
+            border: 2px solid rgba(0, 255, 255, 0.4);
+            border-radius: 20px;
+            padding: 25px;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #00ffff, #ff0080, #ffff00);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .project-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 255, 255, 0.3);
+            border-color: rgba(0, 255, 255, 0.8);
+        }
+
+        .project-card.featured {
+            grid-column: 1 / -1;
+            background: linear-gradient(135deg, #00ffff20, #ff008020, #ffff0020);
+            border: 3px solid rgba(0, 255, 255, 0.8);
+        }
+
+        .project-type {
+            background: linear-gradient(45deg, #00ffff, #ff0080);
+            color: #000;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Chart Container */
+        .chart-container {
+            position: relative;
+            height: 400px;
+            margin: 20px 0;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 15px;
+            padding: 20px;
+            border: 2px solid rgba(0, 255, 255, 0.3);
+        }
+
+        /* SWOT Analysis */
+        .swot-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .swot-quadrant {
+            border-radius: 15px;
+            padding: 25px;
+            border: 2px solid;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .swot-strengths {
+            background: linear-gradient(135deg, rgba(0, 255, 0, 0.1), rgba(0, 255, 255, 0.1));
+            border-color: #00ff00;
+        }
+
+        .swot-weaknesses {
+            background: linear-gradient(135deg, rgba(255, 0, 0, 0.1), rgba(255, 0, 128, 0.1));
+            border-color: #ff0000;
+        }
+
+        .swot-opportunities {
+            background: linear-gradient(135deg, rgba(255, 255, 0, 0.1), rgba(0, 255, 255, 0.1));
+            border-color: #ffff00;
+        }
+
+        .swot-threats {
+            background: linear-gradient(135deg, rgba(255, 128, 0, 0.1), rgba(255, 0, 128, 0.1));
+            border-color: #ff8000;
+        }
+
+        .swot-quadrant h3 {
+            text-align: center;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Contact Section */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .contact-item {
+            background: linear-gradient(135deg, rgba(0, 255, 255, 0.2), rgba(255, 0, 128, 0.2));
+            border: 2px solid rgba(0, 255, 255, 0.5);
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: #fff;
+        }
+
+        .contact-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 25px rgba(0, 255, 255, 0.4);
+            border-color: rgba(0, 255, 255, 0.8);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .container {
+                max-width: 95%;
+                padding: 15px;
+            }
+            
+            .project-grid {
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            .tabs-nav {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .tab-btn {
+                width: 200px;
+                text-align: center;
+            }
+            
+            .grid, .project-grid, .swot-grid, .contact-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .section {
+                padding: 20px;
+            }
+            
+            .chart-container {
+                height: 300px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.8rem;
+            }
+            
+            .hero {
+                padding: 25px;
+            }
+            
+            .profile-img {
+                width: 120px;
+                height: 120px;
+                font-size: 36px;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .tab-btn {
+                padding: 10px 20px;
+                font-size: 0.9rem;
+            }
+        }
+
+        /* Floating Action Button */
+        .floating-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: linear-gradient(45deg, #00ffff, #ff0080);
+            color: #000;
+            border: none;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            font-size: 24px;
+            cursor: pointer;
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.6);
+            transition: all 0.3s ease;
+            z-index: 1000;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .floating-btn:hover {
+            transform: scale(1.2) rotate(360deg);
+            box-shadow: 0 0 30px rgba(0, 255, 255, 1);
+        }
+
+        /* Loading Animation */
+        .loading {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .loading.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <div class="cyber-bg"></div>
+    <div class="matrix-effect"></div>
+    
+    <div class="container">
+        <!-- Hero Section -->
+        <section class="hero loading">
+            <div class="hero-content">
+                <div class="profile-img">AS</div>
+                <h1>ARAVIND SOUNDIRARAJAN</h1>
+                <p class="subtitle">COMPUTER ENGINEERING • AI/ML SPECIALIST • CYBER WARRIOR</p>
+            </div>
+        </section>
+
+        <!-- Tabs Container -->
+        <div class="tabs-container loading">
+            <nav class="tabs-nav">
+                <button class="tab-btn active" data-tab="about">🤖 ABOUT ME</button>
+                <button class="tab-btn" data-tab="skills">⚡ SKILLS</button>
+                <button class="tab-btn" data-tab="projects">🚀 PROJECTS</button>
+                <button class="tab-btn" data-tab="plo">📊 PLO ANALYSIS</button>
+                <button class="tab-btn" data-tab="swot">🎯 SWOT</button>
+                <button class="tab-btn" data-tab="experience">💼 EXPERIENCE</button>
+                <button class="tab-btn" data-tab="contact">📡 CONTACT</button>
+            </nav>
+
+            <!-- About Me Tab -->
+            <div id="about" class="tab-content active">
+                <section class="section">
+                    <h2 class="section-title">🤖 ABOUT ME</h2>
+                    <div class="grid">
+                        <div class="info-card">
+                            <h3>🎓 ACADEMIC PROFILE</h3>
+                            <p><strong>Current Status:</strong> Bachelor of Computer Engineering with Honours</p>
+                            <p><strong>Institution:</strong> Asia Pacific University (APU/APIIT)</p>
+                            <p><strong>GPA:</strong> 3.71/4.0</p>
+                            <p><strong>Expected Graduation:</strong> November 2025</p>
+                            <p><strong>Location:</strong> Petaling Jaya, Selangor, Malaysia</p>
+                        </div>
+                        <div class="info-card">
+                            <h3>🚀 MISSION STATEMENT</h3>
+                            <p>Immersed in my third year at Asia Pacific University, I'm fueled by a deep passion for technological innovation and engineering solutions. My academic journey involves rigorous coursework and hands-on projects that hone my skills in both software and hardware fields.</p>
+                        </div>
+                        <div class="info-card">
+                            <h3>💪 CORE STRENGTHS</h3>
+                            <ul>
+                                <li>🎯 Meticulous attention to detail</li>
+                                <li>🤝 Effective communication in collaborative environments</li>
+                                <li>🔬 Strong technical skills in lab environments</li>
+                                <li>🧠 Quick learner with high personal standards</li>
+                                <li>👥 Natural leader with group management abilities</li>
+                                <li>🗣️ Excellent communicator and presenter</li>
+                            </ul>
+                        </div>
+                        <div class="info-card">
+                            <h3>🌟 PERSONAL INFO</h3>
+                            <p><strong>Date of Birth:</strong> October 20, 2002</p>
+                            <p><strong>Languages:</strong> English (Fluent), Tamil (Native)</p>
+                            <p><strong>Ethnicity:</strong> Indian</p>
+                            <p><strong>Current Visa:</strong> Student Visa</p>
+                            <p><strong>Interests:</strong> AI/ML, Cybersecurity, Robotics</p>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Skills Tab -->
+            <div id="skills" class="tab-content">
+                <section class="section">
+                    <h2 class="section-title">⚡ TECHNICAL ARSENAL</h2>
+                    <div class="skill-category">
+                        <h3>💻 Programming Languages</h3>
+                        <div class="skill-list">
+                            <span class="skill-tag">C/C++</span>
+                            <span class="skill-tag">Python</span>
+                            <span class="skill-tag">Java</span>
+                            <span class="skill-tag">HTML5/CSS3</span>
+                            <span class="skill-tag">PHP</span>
+                            <span class="skill-tag">MySQL</span>
+                            <span class="skill-tag">JavaScript</span>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h3>🤖 AI/ML & Automation</h3>
+                        <div class="skill-list">
+                            <span class="skill-tag">OpenCV</span>
+                            <span class="skill-tag">Machine Learning</span>
+                            <span class="skill-tag">Computer Vision</span>
+                            <span class="skill-tag">ROS Environment</span>
+                            <span class="skill-tag">3D Point Cloud</span>
+                            <span class="skill-tag">PyQt5</span>
+                            <span class="skill-tag">Qt Designer</span>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h3>🛡️ Cybersecurity</h3>
+                        <div class="skill-list">
+                            <span class="skill-tag">NIST Framework</span>
+                            <span class="skill-tag">ISO 27001</span>
+                            <span class="skill-tag">Risk Assessment</span>
+                            <span class="skill-tag">Incident Analysis</span>
+                            <span class="skill-tag">Network Security</span>
+                            <span class="skill-tag">Threat Landscape</span>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h3>🔧 Engineering Tools</h3>
+                        <div class="skill-list">
+                            <span class="skill-tag">MATLAB/Simulink</span>
+                            <span class="skill-tag">LabVIEW</span>
+                            <span class="skill-tag">Cisco Packet Tracer</span>
+                            <span class="skill-tag">Power Automate</span>
+                            <span class="skill-tag">ESP32</span>
+                            <span class="skill-tag">Raspberry Pi</span>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h3>🏆 Certifications</h3>
+                        <div class="skill-list">
+                            <span class="skill-tag">FCF - Threat Landscape</span>
+                            <span class="skill-tag">ISC2 CC Training</span>
+                            <span class="skill-tag">MATLAB Onramp</span>
+                            <span class="skill-tag">HTML/CSS Programming</span>
+                            <span class="skill-tag">Fortinet Cybersecurity</span>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Projects Tab -->
+            <div id="projects" class="tab-content">
+                <section class="section">
+                    <h2 class="section-title">🚀 PROJECT PORTFOLIO</h2>
+                    
+                    <h3 style="color: #ff0080; text-align: center; margin: 30px 0;">🎯 MAJOR PROJECTS</h3>
+                    
+                    <div class="project-card featured">
+                        <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 15px; flex-wrap: wrap; gap: 10px;">
+                            <h4 style="color: #00ffff; font-size: 1.4rem;">🌴 Palm Tree Classification System</h4>
+                            <span class="project-type">AI/ML • Computer Vision</span>
+                        </div>
+                        <p style="margin-bottom: 20px;">Developed an advanced automated palm tree classification system using cutting-edge AI and computer vision technologies. Integrated ROS (Robot Operating System) environment with sophisticated 3D point cloud segmentation models.</p>
+                        <div class="skill-list">
+                            <span class="skill-tag">ROS Environment</span>
+                            <span class="skill-tag">3D Point Cloud</span>
+                            <span class="skill-tag">Computer Vision</span>
+                            <span class="skill-tag">Machine Learning</span>
+                            <span class="skill-tag">Python</span>
+                        </div>
+                    </div>
+
+                    <div class="project-grid">
+                        <div class="project-card">
+                            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 15px; flex-wrap: wrap; gap: 10px;">
+                                <h4 style="color: #00ffff;">👓 Smart Glasses for Visually Impaired</h4>
+                                <span class="project-type">IoT • Assistive Tech</span>
+                            </div>
+                            <p style="margin-bottom: 15px;">Designed assistive technology using Raspberry Pi integrated with AI-powered object detection and voice feedback systems.</p>
+                            <div class="skill-list">
+                                <span class="skill-tag">Raspberry Pi</span>
+                                <span class="skill-tag">Computer Vision</span>
+                                <span class="skill-tag">AI Integration</span>
+                                <span class="skill-tag">IoT Sensors</span>
+                            </div>
+                        </div>
+
+                        <div class="project-card">
+                            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 15px; flex-wrap: wrap; gap: 10px;">
+                                <h4 style="color: #00ffff;">🤖 Autonomous Fire Fighting Robot</h4>
+                                <span class="project-type">Robotics • Emergency</span>
+                            </div>
+                            <p style="margin-bottom: 15px;">Engineered autonomous fire-fighting robot with sensor fusion and ESP32 microcontroller for real-time decision making.</p>
+                            <div class="skill-list">
+                                <span class="skill-tag">ESP32</span>
+                                <span class="skill-tag">Sensor Fusion</span>
+                                <span class="skill-tag">Autonomous Navigation</span>
+                                <span class="skill-tag">C++</span>
+                            </div>
+                        </div>
+
+                        <div class="project-card">
+                            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 15px; flex-wrap: wrap; gap: 10px;">
+                                <h4 style="color: #00ffff;">🚗 Car Rental Management System</h4>
+                                <span class="project-type">GUI Application</span>
+                            </div>
+                            <p style="margin-bottom: 15px;">Comprehensive GUI application built using Java and Object-Oriented Programming principles.</p>
+                            <div class="skill-list">
+                                <span class="skill-tag">Java</span>
+                                <span class="skill-tag">OOP</span>
+                                <span class="skill-tag">GUI Design</span>
+                                <span class="skill-tag">Database</span>
+                            </div>
+                        </div>
+
+                        <div class="project-card">
+                            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 15px; flex-wrap: wrap; gap: 10px;">
+                                <h4 style="color: #00ffff;">🏦 Banking System Simulation</h4>
+                                <span class="project-type">Python Application</span>
+                            </div>
+                            <p style="margin-bottom: 15px;">Comprehensive banking system simulation with user authentication and transaction processing.</p>
+                            <div class="skill-list">
+                                <span class="skill-tag">Python</span>
+                                <span class="skill-tag">PyQt5</span>
+                                <span class="skill-tag">Data Management</span>
+                                <span class="skill-tag">Security</span>
+                            </div>
+                        </div>
+
+                        <div class="project-card">
+                            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 15px; flex-wrap: wrap; gap: 10px;">
+                                <h4 style="color: #00ffff;">👋 Hand Gesture Recognition</h4>
+                                <span class="project-type">Computer Vision</span>
+                            </div>
+                            <p style="margin-bottom: 15px;">Advanced hand gesture recognition using OpenCV and machine learning for human-computer interface.</p>
+                            <div class="skill-list">
+                                <span class="skill-tag">OpenCV</span>
+                                <span class="skill-tag">Python</span>
+                                <span class="skill-tag">Machine Learning</span>
+                                <span class="skill-tag">Computer Vision</span>
+                            </div>
+                        </div>
+
+                        <div class="project-card">
+                            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 15px; flex-wrap: wrap; gap: 10px;">
+                                <h4 style="color: #00ffff;">🏭 Industrial Factory Simulation</h4>
+                                <span class="project-type">Industrial Automation</span>
+                            </div>
+                            <p style="margin-bottom: 15px;">Complete industrial drink factory simulation using LabVIEW, demonstrating process automation expertise.</p>
+                            <div class="skill-list">
+                                <span class="skill-tag">LabVIEW</span>
+                                <span class="skill-tag">Process Automation</span>
+                                <span class="skill-tag">Industrial Control</span>
+                                <span class="skill-tag">SCADA Systems</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- PLO Analysis Tab -->
+            <div id="plo" class="tab-content">
+                <section class="section">
+                    <h2 class="section-title">📊 PLO PERFORMANCE MATRIX</h2>
+                    <div class="grid">
+                        <div class="info-card">
+                            <h3>🎯 MY PLO RADAR</h3>
+                            <div class="chart-container">
+                                <canvas id="ploChart"></canvas>
+                            </div>
+                            <p style="text-align: center; margin-top: 15px; color: #00ffff;">
+                                <strong>Current GPA: 3.71/4.0</strong><br>
+                                Performance across all Program Learning Outcomes
+                            </p>
+                        </div>
+                        
+                        <div class="info-card">
+                            <h3>📈 PLO BREAKDOWN</h3>
+                            <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-top: 15px;">
+                                <div style="background: rgba(0, 255, 255, 0.1); padding: 10px; border-radius: 8px; border: 1px solid rgba(0, 255, 255, 0.3);">
+                                    <strong>PLO1-PLO10:</strong> 100%
+                                </div>
+                                <div style="background: rgba(255, 255, 0, 0.1); padding: 10px; border-radius: 8px; border: 1px solid rgba(255, 255, 0, 0.3);">
+                                    <strong>PLO11:</strong> 67%
+                                </div>
+                                <div style="background: rgba(0, 255, 255, 0.1); padding: 10px; border-radius: 8px; border: 1px solid rgba(0, 255, 255, 0.3);">
+                                    <strong>PLO12:</strong> 100%
+                                </div>
+                                <div style="background: rgba(0, 255, 0, 0.1); padding: 10px; border-radius: 8px; border: 1px solid rgba(0, 255, 0, 0.3);">
+                                    <strong>Overall:</strong> 97.2%
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="margin-top: 30px;">
+                        <h3 style="color: #ff0080; text-align: center; margin-bottom: 20px;">📋 PLO FRAMEWORK DETAILS</h3>
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 15px;">
+                            <div style="background: linear-gradient(135deg, rgba(0, 255, 255, 0.1), rgba(255, 0, 128, 0.1)); border: 2px solid rgba(0, 255, 255, 0.3); border-radius: 10px; padding: 15px;">
+                                <div style="color: #00ffff; font-weight: bold; margin-bottom: 5px;">PLO1</div>
+                                <p style="font-size: 0.9rem;">Ability to gain and apply principles of Mathematics, Science and Engineering to complex engineering problems.</p>
+                            </div>
+                            <div style="background: linear-gradient(135deg, rgba(0, 255, 255, 0.1), rgba(255, 0, 128, 0.1)); border: 2px solid rgba(0, 255, 255, 0.3); border-radius: 10px; padding: 15px;">
+                                <div style="color: #00ffff; font-weight: bold; margin-bottom: 5px;">PLO2</div>
+                                <p style="font-size: 0.9rem;">Ability to undertake complex engineering problem analysis and apply engineering principles.</p>
+                            </div>
+                            <div style="background: linear-gradient(135deg, rgba(0, 255, 255, 0.1), rgba(255, 0, 128, 0.1)); border: 2px solid rgba(0, 255, 255, 0.3); border-radius: 10px; padding: 15px;">
+                                <div style="color: #00ffff; font-weight: bold; margin-bottom: 5px;">PLO3</div>
+                                <p style="font-size: 0.9rem;">Ability to design innovative solutions for complex engineering problems.</p>
+                            </div>
+                            <div style="background: linear-gradient(135deg, rgba(0, 255, 255, 0.1), rgba(255, 0, 128, 0.1)); border: 2px solid rgba(0, 255, 255, 0.3); border-radius: 10px; padding: 15px;">
+                                <div style="color: #00ffff; font-weight: bold; margin-bottom: 5px;">PLO4</div>
+                                <p style="font-size: 0.9rem;">Ability to investigate complex engineering problems using research techniques.</p>
+                            </div>
+                            <div style="background: linear-gradient(135deg, rgba(0, 255, 255, 0.1), rgba(255, 0, 128, 0.1)); border: 2px solid rgba(0, 255, 255, 0.3); border-radius: 10px; padding: 15px;">
+                                <div style="color: #00ffff; font-weight: bold; margin-bottom: 5px;">PLO5</div>
+                                <p style="font-size: 0.9rem;">Ability to select and use suitable tools and techniques for complex engineering problems.</p>
+                            </div>
+                            <div style="background: linear-gradient(135deg, rgba(0, 255, 255, 0.1), rgba(255, 0, 128, 0.1)); border: 2px solid rgba(0, 255, 255, 0.3); border-radius: 10px; padding: 15px;">
+                                <div style="color: #00ffff; font-weight: bold; margin-bottom: 5px;">PLO6</div>
+                                <p style="font-size: 0.9rem;">Ability to engage in professional engineering practice for safety, health, social, cultural and legal responsibilities.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- SWOT Analysis Tab -->
+            <div id="swot" class="tab-content">
+                <section class="section">
+                    <h2 class="section-title">🎯 SWOT ANALYSIS</h2>
+                    <div class="swot-grid">
+                        <div class="swot-quadrant swot-strengths">
+                            <h3 style="color: #00ff00;">💪 STRENGTHS</h3>
+                            <ul>
+                                <li>🎓 Strong academic performance (GPA: 3.71)</li>
+                                <li>🤖 Hands-on AI/ML and automation experience</li>
+                                <li>🛡️ Cybersecurity expertise with industry certifications</li>
+                                <li>🔬 Excellent lab and practical work enthusiasm</li>
+                                <li>👥 Natural leadership and team management skills</li>
+                                <li>🗣️ Exceptional communication abilities</li>
+                                <li>⚡ Quick learner with high personal standards</li>
+                                <li>🏢 Real-world internship experience at KPMG</li>
+                            </ul>
+                        </div>
+
+                        <div class="swot-quadrant swot-weaknesses">
+                            <h3 style="color: #ff0000;">⚠️ WEAKNESSES</h3>
+                            <ul>
+                                <li>📚 Still completing degree (graduating Nov 2025)</li>
+                                <li>🌐 Limited full-stack web development experience</li>
+                                <li>💼 Relatively early in professional career</li>
+                                <li>📊 PLO11 performance at 67% (improvement area)</li>
+                                <li>🌍 Limited international work experience</li>
+                                <li>📈 Could benefit from more industry networking</li>
+                            </ul>
+                        </div>
+
+                        <div class="swot-quadrant swot-opportunities">
+                            <h3 style="color: #ffff00;">🚀 OPPORTUNITIES</h3>
+                            <ul>
+                                <li>🤖 Growing AI/ML job market in Malaysia and globally</li>
+                                <li>🛡️ High demand for cybersecurity professionals</li>
+                                <li>🎓 APU's strong industry connections</li>
+                                <li>🔄 Potential full-time offer from KPMG</li>
+                                <li>🌐 Remote work opportunities in tech</li>
+                                <li>📱 IoT and smart device industry expansion</li>
+                                <li>🏭 Industry 4.0 and automation needs</li>
+                                <li>🎯 Startup ecosystem in KL/Selangor</li>
+                            </ul>
+                        </div>
+
+                        <div class="swot-quadrant swot-threats">
+                            <h3 style="color: #ff8000;">⚡ THREATS</h3>
+                            <ul>
+                                <li>🏆 High competition from experienced engineers</li>
+                                <li>📈 Rapidly evolving technology requiring constant upskilling</li>
+                                <li>🌍 Economic uncertainties affecting hiring</li>
+                                <li>🤖 AI automation potentially replacing some roles</li>
+                                <li>📜 Visa status limitations for international opportunities</li>
+                                <li>⏰ Time pressure to graduate and secure employment</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Experience Tab -->
+            <div id="experience" class="tab-content">
+                <section class="section">
+                    <h2 class="section-title">💼 PROFESSIONAL EXPERIENCE</h2>
+                    <div class="grid">
+                        <div class="info-card">
+                            <h3>🏢 KPMG Malaysia - Technology Risk Consulting Intern</h3>
+                            <p><strong>Duration:</strong> July 2024 - November 2024 (5 months)</p>
+                            <p><strong>Department:</strong> Technology Risk Consulting (GRC)</p>
+                            <ul style="margin-top: 15px;">
+                                <li>🔍 Conducted cybersecurity incident analysis and identified compliance gaps</li>
+                                <li>🤖 Developed automation tools using Microsoft Power Automate</li>
+                                <li>📋 Assisted in creating cybersecurity frameworks (NIST & ISO 27001)</li>
+                                <li>🤝 Supported client engagements in risk assessment and policy development</li>
+                                <li>📊 Streamlined PMO team processes through automation</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="info-card">
+                            <h3>🎓 APU - Engineering Lab Assistant</h3>
+                            <p><strong>Duration:</strong> September 2023 - November 2023 (2 months)</p>
+                            <p><strong>Institution:</strong> Asia Pacific University</p>
+                            <ul style="margin-top: 15px;">
+                                <li>🔬 Supported next generation of engineers in lab environments</li>
+                                <li>📚 Deepened understanding of practical and theoretical engineering aspects</li>
+                                <li>👥 Developed strong technical skills and attention to detail</li>
+                                <li>🗣️ Enhanced communication skills in collaborative learning environment</li>
+                                <li>⚙️ Assisted students with engineering equipment and experiments</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div style="margin-top: 30px;">
+                        <h3 style="color: #ff0080; text-align: center; margin-bottom: 20px;">🎓 EDUCATIONAL JOURNEY</h3>
+                        <div class="grid">
+                            <div class="info-card">
+                                <h3>🏫 Asia Pacific University (APU/APIIT)</h3>
+                                <p><strong>Degree:</strong> Bachelor of Computer Engineering with Honours</p>
+                                <p><strong>Duration:</strong> January 2021 - November 2025</p>
+                                <p><strong>Current GPA:</strong> 3.71/4.0</p>
+                                <p><strong>Specialization:</strong> AI/ML, Cybersecurity, Automation</p>
+                            </div>
+                            
+                            <div class="info-card">
+                                <h3>🎓 Sunway College</h3>
+                                <p><strong>Qualification:</strong> Cambridge A Levels</p>
+                                <p><strong>Duration:</strong> September 2019 - June 2021</p>
+                                <p><strong>Preparation:</strong> University entry qualification</p>
+                            </div>
+                            
+                            <div class="info-card">
+                                <h3>🏫 Maz International School</h3>
+                                <p><strong>Qualification:</strong> Edexcel IGCSE O Levels</p>
+                                <p><strong>Duration:</strong> May 2007 - May 2019</p>
+                                <p><strong>Foundation:</strong> Strong academic foundation</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Contact Tab -->
+            <div id="contact" class="tab-content">
+                <section class="section">
+                    <h2 class="section-title">📡 CONTACT MATRIX</h2>
+                    <div class="contact-grid">
+                        <a href="tel:+60113446502" class="contact-item">
+                            <div style="font-size: 2rem; margin-bottom: 10px;">📞</div>
+                            <h3>PHONE</h3>
+                            <p>+60-11 33446502</p>
+                        </a>
+                        
+                        <a href="mailto:aravindsoundir@gmail.com" class="contact-item">
+                            <div style="font-size: 2rem; margin-bottom: 10px;">📧</div>
+                            <h3>PRIMARY EMAIL</h3>
+                            <p>aravindsoundir@gmail.com</p>
+                        </a>
+                        
+                        <a href="https://www.linkedin.com/in/aravindsoundirarajan-8963242b6" target="_blank" class="contact-item">
+                            <div style="font-size: 2rem; margin-bottom: 10px;">💼</div>
+                            <h3>LINKEDIN</h3>
+                            <p>Professional Network</p>
+                        </a>
+                    </div>
+                    
+                    <div style="margin-top: 40px;">
+                        <h3 style="color: #00ffff; text-align: center; margin-bottom: 25px;">💬 SEND MESSAGE</h3>
+                        <div style="background: linear-gradient(135deg, rgba(0, 255, 255, 0.1), rgba(255, 0, 128, 0.1)); border: 2px solid rgba(0, 255, 255, 0.3); border-radius: 20px; padding: 30px; max-width: 600px; margin: 0 auto;">
+                            <form id="contactForm" style="display: flex; flex-direction: column; gap: 20px;">
+                                <div>
+                                    <label style="color: #00ffff; font-weight: bold; margin-bottom: 8px; display: block;">Your Name *</label>
+                                    <input type="text" id="senderName" required style="width: 100%; padding: 12px; border: 2px solid rgba(0, 255, 255, 0.3); border-radius: 10px; background: rgba(0, 0, 0, 0.3); color: #fff; font-size: 1rem;">
+                                </div>
+                                
+                                <div>
+                                    <label style="color: #00ffff; font-weight: bold; margin-bottom: 8px; display: block;">Your Email *</label>
+                                    <input type="email" id="senderEmail" required style="width: 100%; padding: 12px; border: 2px solid rgba(0, 255, 255, 0.3); border-radius: 10px; background: rgba(0, 0, 0, 0.3); color: #fff; font-size: 1rem;">
+                                </div>
+                                
+                                <div>
+                                    <label style="color: #00ffff; font-weight: bold; margin-bottom: 8px; display: block;">Subject *</label>
+                                    <select id="messageSubject" required style="width: 100%; padding: 12px; border: 2px solid rgba(0, 255, 255, 0.3); border-radius: 10px; background: rgba(0, 0, 0, 0.3); color: #fff; font-size: 1rem;">
+                                        <option value="">Select a subject...</option>
+                                        <option value="Job Opportunity">💼 Job Opportunity</option>
+                                        <option value="Internship Opportunity">🎓 Internship Opportunity</option>
+                                        <option value="Project Collaboration">🚀 Project Collaboration</option>
+                                        <option value="Technical Discussion">⚡ Technical Discussion</option>
+                                        <option value="General Inquiry">💬 General Inquiry</option>
+                                    </select>
+                                </div>
+                                
+                                <div>
+                                    <label style="color: #00ffff; font-weight: bold; margin-bottom: 8px; display: block;">Your Message *</label>
+                                    <textarea id="messageContent" required rows="6" placeholder="Hello Aravind, I came across your portfolio and..." style="width: 100%; padding: 12px; border: 2px solid rgba(0, 255, 255, 0.3); border-radius: 10px; background: rgba(0, 0, 0, 0.3); color: #fff; font-size: 1rem; resize: vertical; font-family: inherit;"></textarea>
+                                </div>
+                                
+                                <button type="submit" style="background: linear-gradient(45deg, #00ffff, #ff0080); color: #000; border: none; padding: 15px 30px; border-radius: 25px; font-size: 1.1rem; font-weight: bold; cursor: pointer; transition: all 0.3s ease; text-transform: uppercase; letter-spacing: 1px;">
+                                    ⚡ SEND MESSAGE ⚡
+                                </button>
+                                
+                                <div id="formStatus" style="text-align: center; font-weight: bold; margin-top: 10px;"></div>
+                            </form>
+                        </div>
+                    </div>
+                    
+                    <div style="margin-top: 40px; text-align: center; padding: 30px; background: linear-gradient(135deg, rgba(0, 255, 255, 0.1), rgba(255, 0, 128, 0.1)); border: 2px solid rgba(0, 255, 255, 0.3); border-radius: 20px;">
+                        <h3 style="color: #00ffff; margin-bottom: 15px;">🚀 READY FOR OPPORTUNITIES</h3>
+                        <p style="font-size: 1.2rem; color: #fff;">Currently seeking full-time opportunities in:</p>
+                        <div class="skill-list" style="justify-content: center; margin-top: 15px;">
+                            <span class="skill-tag">Software Development</span>
+                            <span class="skill-tag">AI/ML Engineering</span>
+                            <span class="skill-tag">Cybersecurity</span>
+                            <span class="skill-tag">Automation Systems</span>
+                            <span class="skill-tag">Computer Engineering</span>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+
+    <button class="floating-btn" onclick="scrollToTop()" title="Back to Top">
+        ⚡
+    </button>
+
+    <script>
+        // Tab functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabBtns = document.querySelectorAll('.tab-btn');
+            const tabContents = document.querySelectorAll('.tab-content');
+
+            tabBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const targetTab = this.getAttribute('data-tab');
+                    
+                    // Remove active class from all tabs and contents
+                    tabBtns.forEach(b => b.classList.remove('active'));
+                    tabContents.forEach(c => c.classList.remove('active'));
+                    
+                    // Add active class to clicked tab and corresponding content
+                    this.classList.add('active');
+                    document.getElementById(targetTab).classList.add('active');
+                });
+            });
+
+            // Initialize loading animations
+            setTimeout(() => {
+                const loadingElements = document.querySelectorAll('.loading');
+                loadingElements.forEach(el => el.classList.add('visible'));
+            }, 100);
+        });
+
+        // PLO Chart Data
+        const ploData = {
+            labels: ['PLO1', 'PLO2', 'PLO3', 'PLO4', 'PLO5', 'PLO6', 'PLO7', 'PLO8', 'PLO9', 'PLO10', 'PLO11', 'PLO12'],
+            datasets: [{
+                label: 'My PLO Performance',
+                data: [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 0.67, 1.0],
+                backgroundColor: 'rgba(0, 255, 255, 0.2)',
+                borderColor: 'rgba(0, 255, 255, 1)',
+                borderWidth: 3,
+                pointBackgroundColor: 'rgba(0, 255, 255, 1)',
+                pointBorderColor: '#fff',
+                pointBorderWidth: 2,
+                pointRadius: 6,
+                pointHoverRadius: 8,
+                fill: true
+            }]
+        };
+
+        // Initialize Chart when PLO tab is first clicked
+        let chartInitialized = false;
+        document.querySelector('[data-tab="plo"]').addEventListener('click', function() {
+            if (!chartInitialized) {
+                setTimeout(() => {
+                    const ctx = document.getElementById('ploChart').getContext('2d');
+                    new Chart(ctx, {
+                        type: 'radar',
+                        data: ploData,
+                        options: {
+                            responsive: true,
+                            maintainAspectRatio: false,
+                            plugins: {
+                                legend: {
+                                    display: false
+                                }
+                            },
+                            scales: {
+                                r: {
+                                    angleLines: {
+                                        color: 'rgba(0, 255, 255, 0.3)'
+                                    },
+                                    grid: {
+                                        color: 'rgba(0, 255, 255, 0.3)'
+                                    },
+                                    pointLabels: {
+                                        font: {
+                                            size: 12,
+                                            weight: 'bold'
+                                        },
+                                        color: '#00ffff'
+                                    },
+                                    ticks: {
+                                        beginAtZero: true,
+                                        max: 1,
+                                        stepSize: 0.2,
+                                        backdropColor: 'transparent',
+                                        color: '#00ffff'
+                                    }
+                                }
+                            },
+                            elements: {
+                                line: {
+                                    tension: 0.1
+                                }
+                            }
+                        }
+                    });
+                    chartInitialized = true;
+                }, 100);
+            }
+        });
+
+        // Scroll to top function
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Add interactive effects to skill tags
+        document.addEventListener('click', function(e) {
+            if (e.target.classList.contains('skill-tag')) {
+                e.target.style.background = 'linear-gradient(45deg, #00ffff, #ff0080)';
+                e.target.style.color = '#000';
+                setTimeout(() => {
+                    e.target.style.background = '';
+                    e.target.style.color = '';
+                }, 1000);
+            }
+        });
+
+        // Add cyber sound effects (optional)
+        function playBeep() {
+            // Create audio context for beep sound
+            if (typeof(AudioContext) !== 'undefined' || typeof(webkitAudioContext) !== 'undefined') {
+                const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+                const oscillator = audioCtx.createOscillator();
+                const gainNode = audioCtx.createGain();
+                
+                oscillator.connect(gainNode);
+                gainNode.connect(audioCtx.destination);
+                
+                oscillator.frequency.setValueAtTime(800, audioCtx.currentTime);
+                gainNode.gain.setValueAtTime(0.1, audioCtx.currentTime);
+                gainNode.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.1);
+                
+                oscillator.start(audioCtx.currentTime);
+                oscillator.stop(audioCtx.currentTime + 0.1);
+            }
+        }
+
+        // Initialize EmailJS when the page loads
+        window.addEventListener('load', function() {
+            // Initialize EmailJS (you'll add your keys here after setup)
+            if (typeof emailjs !== 'undefined') {
+                emailjs.init("YOUR_PUBLIC_KEY"); // Replace with your EmailJS public key
+            }
+        });
+
+        // Contact form functionality
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('senderName').value;
+            const email = document.getElementById('senderEmail').value;
+            const subject = document.getElementById('messageSubject').value;
+            const message = document.getElementById('messageContent').value;
+            const statusDiv = document.getElementById('formStatus');
+            
+            // Show sending status
+            statusDiv.innerHTML = '<span style="color: #ffff00;">⚡ Sending message...</span>';
+            
+            // Check if EmailJS is available and configured
+            if (typeof emailjs === 'undefined' || !emailjs) {
+                statusDiv.innerHTML = '<span style="color: #ff8000;">⚠️ Email service not configured yet. Opening email client...</span>';
+                
+                // Fallback to mailto
+                const mailtoLink = `mailto:aravindsoundir@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(
+                    `Name: ${name}\n` +
+                    `Email: ${email}\n` +
+                    `Subject: ${subject}\n\n` +
+                    `Message:\n${message}\n\n` +
+                    `---\nSent from Aravind's Portfolio Contact Form`
+                )}`;
+                
+                window.location.href = mailtoLink;
+                return;
+            }
+            
+            // Prepare email parameters
+            const templateParams = {
+                from_name: name,
+                from_email: email,
+                subject: subject,
+                message: message,
+                to_email: 'aravindsoundir@gmail.com'
+            };
+            
+            // Send email using EmailJS
+            emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', templateParams)
+                .then(function(response) {
+                    console.log('SUCCESS!', response.status, response.text);
+                    statusDiv.innerHTML = '<span style="color: #00ff00;">✅ Message sent successfully!</span>';
+                    
+                    // Reset form after 3 seconds
+                    setTimeout(() => {
+                        document.getElementById('contactForm').reset();
+                        statusDiv.innerHTML = '';
+                    }, 3000);
+                }, function(error) {
+                    console.log('FAILED...', error);
+                    statusDiv.innerHTML = '<span style="color: #ff0000;">❌ Failed to send. Please try again or use email client.</span>';
+                    
+                    // Fallback to mailto after error
+                    setTimeout(() => {
+                        const mailtoLink = `mailto:aravindsoundir@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(
+                            `Name: ${name}\n` +
+                            `Email: ${email}\n` +
+                            `Subject: ${subject}\n\n` +
+                            `Message:\n${message}\n\n` +
+                            `---\nSent from Aravind's Portfolio Contact Form`
+                        )}`;
+                        window.location.href = mailtoLink;
+                    }, 2000);
+                });
+        });
+
+        // Add hover effects to form inputs
+        document.querySelectorAll('#contactForm input, #contactForm select, #contactForm textarea').forEach(input => {
+            input.addEventListener('focus', function() {
+                this.style.borderColor = 'rgba(0, 255, 255, 0.8)';
+                this.style.boxShadow = '0 0 15px rgba(0, 255, 255, 0.3)';
+            });
+            
+            input.addEventListener('blur', function() {
+                this.style.borderColor = 'rgba(0, 255, 255, 0.3)';
+                this.style.boxShadow = 'none';
+            });
+        });
+
+        // Add hover effect to submit button
+        document.querySelector('#contactForm button[type="submit"]').addEventListener('mouseenter', function() {
+            this.style.transform = 'scale(1.05)';
+            this.style.boxShadow = '0 0 25px rgba(0, 255, 255, 0.6)';
+        });
+
+        document.querySelector('#contactForm button[type="submit"]').addEventListener('mouseleave', function() {
+            this.style.transform = 'scale(1)';
+            this.style.boxShadow = 'none';
+        });
+    </script>
+</body>
+</html>
