@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="color-scheme" content="dark">
-    <meta name="theme-color" content="#000428">
+    <meta name="theme-color" content="#0a0a0a">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <title>Aravind Soundirarajan - Transformers Portfolio</title>
@@ -19,8 +19,8 @@
         body {
             font-family: 'Orbitron', 'Segoe UI', sans-serif;
             line-height: 1.6;
-            color: #fff !important;
-            background: linear-gradient(135deg, #000428 0%, #004e92 50%, #000428 100%) !important;
+            color: #e8e8e8 !important;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 25%, #16213e 50%, #1a1a2e 75%, #0a0a0a 100%) !important;
             min-height: 100vh;
             overflow-x: hidden;
             position: relative;
@@ -29,7 +29,7 @@
             -webkit-color-scheme: dark;
         }
 
-        /* Animated Background with Transformers Effects */
+        /* Animated Background with Gentle Transformers Effects */
         .cyber-bg {
             position: fixed;
             top: 0;
@@ -38,15 +38,15 @@
             height: 100%;
             z-index: -2;
             background: 
-                radial-gradient(circle at 20% 50%, rgba(0, 255, 255, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, rgba(255, 0, 128, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 40% 80%, rgba(255, 255, 0, 0.1) 0%, transparent 50%);
-            animation: cyberpulse 8s ease-in-out infinite;
+                radial-gradient(circle at 20% 50%, rgba(0, 162, 255, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 140, 0, 0.06) 0%, transparent 50%),
+                radial-gradient(circle at 40% 80%, rgba(138, 43, 226, 0.05) 0%, transparent 50%);
+            animation: gentlePulse 10s ease-in-out infinite;
         }
 
-        @keyframes cyberpulse {
+        @keyframes gentlePulse {
             0%, 100% { opacity: 0.3; }
-            50% { opacity: 0.8; }
+            50% { opacity: 0.6; }
         }
 
         .matrix-effect {
@@ -58,10 +58,10 @@
             z-index: -1;
             pointer-events: none;
             background-image: 
-                linear-gradient(90deg, rgba(0, 255, 255, 0.03) 1px, transparent 1px),
-                linear-gradient(rgba(0, 255, 255, 0.03) 1px, transparent 1px);
-            background-size: 30px 30px;
-            animation: matrixMove 20s linear infinite;
+                linear-gradient(90deg, rgba(0, 162, 255, 0.02) 1px, transparent 1px),
+                linear-gradient(rgba(0, 162, 255, 0.02) 1px, transparent 1px);
+            background-size: 40px 40px;
+            animation: matrixMove 25s linear infinite;
         }
 
         @keyframes matrixMove {
@@ -77,36 +77,36 @@
             z-index: 10;
         }
 
-        /* Hero Section with Transformer Effects */
+        /* Hero Section with Gentle Transformers Effects */
         .hero {
             background: linear-gradient(135deg, 
-                rgba(0, 255, 255, 0.1) 0%, 
-                rgba(255, 0, 128, 0.1) 50%, 
-                rgba(255, 255, 0, 0.1) 100%);
+                rgba(0, 162, 255, 0.08) 0%, 
+                rgba(255, 140, 0, 0.06) 50%, 
+                rgba(0, 0, 0, 0.2) 100%);
             backdrop-filter: blur(15px);
-            border: 2px solid rgba(0, 255, 255, 0.3);
+            border: 2px solid rgba(0, 162, 255, 0.25);
             border-radius: 25px;
             padding: 40px;
             margin-bottom: 30px;
             box-shadow: 
-                0 0 30px rgba(0, 255, 255, 0.3),
-                inset 0 0 30px rgba(255, 0, 128, 0.1);
+                0 0 25px rgba(0, 162, 255, 0.15),
+                inset 0 0 25px rgba(255, 140, 0, 0.08);
             text-align: center;
             position: relative;
             overflow: hidden;
-            animation: heroGlow 4s ease-in-out infinite;
+            animation: gentleGlow 6s ease-in-out infinite;
         }
 
-        @keyframes heroGlow {
+        @keyframes gentleGlow {
             0%, 100% { 
                 box-shadow: 
-                    0 0 30px rgba(0, 255, 255, 0.3),
-                    inset 0 0 30px rgba(255, 0, 128, 0.1);
+                    0 0 25px rgba(0, 162, 255, 0.15),
+                    inset 0 0 25px rgba(255, 140, 0, 0.08);
             }
             50% { 
                 box-shadow: 
-                    0 0 50px rgba(0, 255, 255, 0.6),
-                    inset 0 0 50px rgba(255, 0, 128, 0.3);
+                    0 0 35px rgba(0, 162, 255, 0.25),
+                    inset 0 0 35px rgba(255, 140, 0, 0.12);
             }
         }
 
@@ -119,14 +119,14 @@
             height: 200%;
             background: linear-gradient(45deg, 
                 transparent, 
-                rgba(0, 255, 255, 0.1), 
+                rgba(0, 162, 255, 0.06), 
                 transparent,
-                rgba(255, 0, 128, 0.1),
+                rgba(255, 140, 0, 0.04),
                 transparent);
-            animation: scanline 6s linear infinite;
+            animation: gentleScan 12s linear infinite;
         }
 
-        @keyframes scanline {
+        @keyframes gentleScan {
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
         }
@@ -140,51 +140,51 @@
             width: 150px;
             height: 150px;
             border-radius: 50%;
-            border: 4px solid rgba(0, 255, 255, 0.8);
+            border: 4px solid rgba(0, 162, 255, 0.5);
             margin: 0 auto 20px;
-            background: linear-gradient(45deg, #00ffff, #ff0080, #ffff00);
+            background: linear-gradient(45deg, #00a2ff, #ff8c00, #8a2be2);
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 48px;
-            color: #000;
+            color: #fff;
             font-weight: bold;
-            animation: energyPulse 3s ease-in-out infinite;
-            box-shadow: 0 0 30px rgba(0, 255, 255, 0.6);
+            animation: gentleEnergyPulse 4s ease-in-out infinite;
+            box-shadow: 0 0 20px rgba(0, 162, 255, 0.3);
         }
 
-        @keyframes energyPulse {
+        @keyframes gentleEnergyPulse {
             0%, 100% { 
                 transform: scale(1);
-                box-shadow: 0 0 30px rgba(0, 255, 255, 0.6);
+                box-shadow: 0 0 20px rgba(0, 162, 255, 0.3);
             }
             50% { 
-                transform: scale(1.05);
-                box-shadow: 0 0 50px rgba(0, 255, 255, 1);
+                transform: scale(1.03);
+                box-shadow: 0 0 30px rgba(0, 162, 255, 0.4);
             }
         }
 
         h1 {
             font-size: 2.8rem;
             margin-bottom: 15px;
-            background: linear-gradient(45deg, #00ffff, #ff0080, #ffff00);
+            background: linear-gradient(45deg, #00a2ff, #ff8c00, #8a2be2);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            text-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
-            animation: textGlow 3s ease-in-out infinite;
+            text-shadow: 0 0 15px rgba(0, 162, 255, 0.3);
+            animation: gentleTextGlow 4s ease-in-out infinite;
         }
 
-        @keyframes textGlow {
-            0%, 100% { text-shadow: 0 0 20px rgba(0, 255, 255, 0.5); }
-            50% { text-shadow: 0 0 30px rgba(0, 255, 255, 0.8); }
+        @keyframes gentleTextGlow {
+            0%, 100% { text-shadow: 0 0 15px rgba(0, 162, 255, 0.3); }
+            50% { text-shadow: 0 0 20px rgba(0, 162, 255, 0.4); }
         }
 
         .subtitle {
             font-size: 1.3rem;
-            color: #00ffff;
+            color: #87ceeb;
             margin-bottom: 20px;
-            text-shadow: 0 0 10px rgba(0, 255, 255, 0.8);
+            text-shadow: 0 0 8px rgba(0, 162, 255, 0.4);
         }
 
         /* Tabs Navigation */
@@ -649,7 +649,7 @@
             <div class="hero-content">
                 <div class="profile-img">AS</div>
                 <h1>ARAVIND SOUNDIRARAJAN</h1>
-                <p class="subtitle">COMPUTER ENGINEERING • AI/ML SPECIALIST • CYBER WARRIOR</p>
+                <p class="subtitle">COMPUTER ENGINEERING • AI/ML SPECIALIST • AUTOBOT ENGINEER</p>
             </div>
         </section>
 
